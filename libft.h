@@ -6,7 +6,7 @@
 /*   By: mli <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 12:34:27 by mli               #+#    #+#             */
-/*   Updated: 2020/01/28 10:49:36 by mli              ###   ########.fr       */
+/*   Updated: 2020/03/14 16:37:30 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 void			ft_free(void **ptr);
 int				ft_atoi_ptr(const char *str, int *i);
+int				ft_nbrlen_base(long int nb, int base_len);
+int				ft_nbrlen(long int nb);
 
 #endif

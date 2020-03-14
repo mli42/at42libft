@@ -6,7 +6,7 @@
 #    By: mli <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 17:22:00 by mli               #+#    #+#              #
-#    Updated: 2020/01/28 10:53:48 by mli              ###   ########.fr        #
+#    Updated: 2020/03/14 16:32:10 by mli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS_FILES = ft_memset.c ft_bzero.c ft_strlen.c ft_toupper.c ft_tolower.c \
 			 ft_putchar.c ft_putstr.c ft_putnbr.c \
 			 ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
 			 ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-			 ft_strcmp.c ft_memalloc.c ft_free.c ft_atoi_ptr.c
+			 ft_strcmp.c ft_memalloc.c ft_free.c ft_atoi_ptr.c ft_nbrlen.c
 
 OBJS = ${SRCS_FILES:.c=.o}
 
