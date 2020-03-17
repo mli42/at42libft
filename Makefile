@@ -6,7 +6,7 @@
 #    By: mli <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 17:22:00 by mli               #+#    #+#              #
-#    Updated: 2020/03/17 17:19:43 by mli              ###   ########.fr        #
+#    Updated: 2020/03/17 17:37:20 by mli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ SRCS_FILES = ft_memset.c ft_bzero.c ft_strlen.c ft_toupper.c ft_tolower.c \
 
 OBJS = ${SRCS_FILES:.c=.o}
 
+all:
+	@printf "\033[1mMake libft\033[0m : "
+	@make ${NAME}
+
 $(NAME): ${OBJS} 
 	@echo ""
 	@ar rcs ${NAME} ${OBJS}
@@ -38,8 +42,6 @@ $(NAME): ${OBJS}
 .c.o:
 	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 	@printf "\033[0;33m▓\033[0m"
-
-all: ${NAME}
 
 clean:
 	@echo "\033[1m\x1b[33mRemove libft... |\x1b[32m| done\x1b[0m"
