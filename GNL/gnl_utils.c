@@ -6,7 +6,7 @@
 /*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:53:26 by mli               #+#    #+#             */
-/*   Updated: 2020/03/17 18:35:32 by mli              ###   ########.fr       */
+/*   Updated: 2020/03/17 23:33:49 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void		ft_total_remove_fd(t_struct **begin_fd, t_struct *to_delete_fd)
 	t_gnl		*then;
 	t_struct	*tmp_fd;
 
+	if (!to_delete_fd)
+		return ;
 	current = to_delete_fd->list;
 	while (current)
 	{
@@ -103,16 +105,16 @@ int			get_next_line(int fd, char **line)
 		return (-1);
 	while (right_fd && right_fd->fd != fd)
 		right_fd = right_fd->next;
+	if (!line)
+	{
+		ft_total_remove_fd(&begin_fd, right_fd);
+		return (-1);
+	}
 	if (right_fd == NULL)
 	{
 		if (!ft_addfront_fd(&begin_fd, fd))
 			return (-1);
 		right_fd = begin_fd;
-	}
-	if (!line)
-	{
-		ft_total_remove_fd(&begin_fd, right_fd);
-		return (0);
 	}
 	return_value = ft_gnl(fd, line, &(right_fd->list));
 	if (return_value == 0 || return_value == (-1))
