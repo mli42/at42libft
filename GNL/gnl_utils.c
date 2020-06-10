@@ -6,13 +6,13 @@
 /*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:53:26 by mli               #+#    #+#             */
-/*   Updated: 2020/03/17 23:33:49 by mli              ###   ########.fr       */
+/*   Updated: 2020/06/10 21:01:41 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_lstclear_gnl(t_gnl **alst)
+void		ft_lstclear_gnl(t_gnl **alst)
 {
 	t_gnl	*tmp;
 
@@ -25,7 +25,7 @@ void	ft_lstclear_gnl(t_gnl **alst)
 	}
 }
 
-t_gnl	*ft_lstnew_gnl(int fd)
+t_gnl		*ft_lstnew_gnl(int fd)
 {
 	t_gnl	*new;
 
@@ -48,11 +48,11 @@ t_gnl	*ft_lstnew_gnl(int fd)
 	return (new);
 }
 
-t_struct	*ft_addfront_fd(t_struct **astruct, int fd)
+t_fdlst		*ft_addfront_fd(t_fdlst **astruct, int fd)
 {
-	t_struct	*new;
+	t_fdlst	*new;
 
-	if (!(new = (t_struct *)malloc(sizeof(*new))))
+	if (!(new = (t_fdlst *)malloc(sizeof(*new))))
 		return (NULL);
 	new->fd = fd;
 	if (!(new->list = ft_lstnew_gnl(fd)))
@@ -65,11 +65,11 @@ t_struct	*ft_addfront_fd(t_struct **astruct, int fd)
 	return (new);
 }
 
-void		ft_total_remove_fd(t_struct **begin_fd, t_struct *to_delete_fd)
+void		ft_total_remove_fd(t_fdlst **begin_fd, t_fdlst *to_delete_fd)
 {
 	t_gnl		*current;
 	t_gnl		*then;
-	t_struct	*tmp_fd;
+	t_fdlst		*tmp_fd;
 
 	if (!to_delete_fd)
 		return ;
@@ -97,8 +97,8 @@ void		ft_total_remove_fd(t_struct **begin_fd, t_struct *to_delete_fd)
 int			get_next_line(int fd, char **line)
 {
 	int					return_value;
-	static t_struct		*begin_fd = NULL;
-	t_struct			*right_fd;
+	static t_fdlst		*begin_fd = NULL;
+	t_fdlst				*right_fd;
 
 	right_fd = begin_fd;
 	if (fd < 0 || BUFFER_SIZE <= 0)
